@@ -22,26 +22,34 @@ namespace ChequePorExtenso.ConsoleApp.TDD
                 if (strValorReais == "1")
                     valorPorExtenso = manipulaValores.Manipular(strValorReais) + " real";
                 else
-                    valorPorExtenso += manipulaValores.Manipular(strValorReais) + " reais";
+                {
+                    valorPorExtenso += manipulaValores.Manipular(strValorReais);
+                    string validaEspaco = valorPorExtenso.Substring(valorPorExtenso.Length - 1, 1);
+
+                    if (validaEspaco == " ")
+                        valorPorExtenso += "reais";
+                    else
+                    valorPorExtenso += " reais";
+                }
 
             else if (intValorReais > 0 && intValorCentavos > 0)
             {
                 if (intValorReais == 1)
                 {
-                    valorPorExtenso = manipulaValores.Manipular(strValorReais) + " real e ";
+                    valorPorExtenso = manipulaValores.Manipular(strValorReais) + " real e";
                     if (strValorCentavos == "01")
-                        valorPorExtenso += manipulaValores.Manipular(strValorCentavos) + " centavo";
+                        valorPorExtenso += manipulaValores.Manipular(strValorCentavos) + "centavo";
                     else if (strValorCentavos == "00")
                         valorPorExtenso += manipulaValores.Manipular(strValorCentavos);
                     else
-                        valorPorExtenso += manipulaValores.Manipular(strValorCentavos) + " centavos";
+                        valorPorExtenso += manipulaValores.Manipular(strValorCentavos) + "centavos";
                 }
                 else
                     valorPorExtenso += manipulaValores.Manipular(strValorReais) + " reais e " + manipulaValores.Manipular(strValorCentavos) + " centavos";
             }
 
             else if (intValorReais == 0 && intValorCentavos == 1)
-                valorPorExtenso += manipulaValores.Manipular(strValorCentavos) + " centavo de real";
+                valorPorExtenso += manipulaValores.Manipular(strValorCentavos) + "centavo de real";
 
             else if (intValorReais == 0 && intValorCentavos > 1)
                 valorPorExtenso += manipulaValores.Manipular(strValorCentavos) + " centavos de real";

@@ -149,5 +149,95 @@ namespace Cheques.Tests
 
             Assert.AreEqual("um milhão cento e doze mil cento e três reais e cinquenta centavos", resultado);
         }
+
+        [TestMethod]
+        public void DeveRetornarUmMilhaoDeReais()
+        {
+            ValorInicial valor = new ValorInicial();
+            string resultado = valor.ManipularValor(1000000.00);
+
+            Assert.AreEqual("um milhão de reais", resultado);
+        }
+
+        [TestMethod]
+        public void DeveRetornarCincoMilhoesDeReais()
+        {
+            ValorInicial valor = new ValorInicial();
+            string resultado = valor.ManipularValor(5000500.00);
+
+            Assert.AreEqual("cinco milhões quinhentos reais", resultado);
+        }
+
+        [TestMethod]
+        public void DeveRetornarDozeMilhoesDeReais()
+        {
+            ValorInicial valor = new ValorInicial();
+            string resultado = valor.ManipularValor(12000000.00);
+
+            Assert.AreEqual("doze milhões de reais", resultado);
+        }
+
+        [TestMethod]
+        public void DeveRetornarDozeMilhoesCentoETresMilOitocentosESeteDeReais()
+        {
+            ValorInicial valor = new ValorInicial();
+            string resultado = valor.ManipularValor(12103807.00);
+
+            Assert.AreEqual("doze milhões cento e três mil oitocentos e sete reais", resultado);
+        }
+
+        [TestMethod]
+        public void DeveRetornarDozeMilhoesCemReaisReais()
+        {
+            ValorInicial valor = new ValorInicial();
+            string resultado = valor.ManipularValor(12000100.00);
+
+            Assert.AreEqual("doze milhões cem reais", resultado);
+        }
+
+        [TestMethod]
+        public void DeveRetornarCentoEDozeMilhoesCemReais()
+        {
+            ValorInicial valor = new ValorInicial();
+            string resultado = valor.ManipularValor(120000100.00);
+
+            Assert.AreEqual("cento e vinte milhões cem reais", resultado);
+        }
+
+        [TestMethod]
+        public void DeveRetornarCemMilhoesDeReais()
+        {
+            ValorInicial valor = new ValorInicial();
+            string resultado = valor.ManipularValor(100000000.00);
+
+            Assert.AreEqual("cem milhões de reais", resultado);
+        }
+
+        [TestMethod]
+        public void DeveRetornarUmBilhaoDeReais()
+        {
+            ValorInicial valor = new ValorInicial();
+            string resultado = valor.ManipularValor(1000000000.00);
+
+            Assert.AreEqual("um bilhão de reais", resultado);
+        }
+
+        [TestMethod]
+        public void DeveRetornarDoisBilhoesDeReais()
+        {
+            ValorInicial valor = new ValorInicial();
+            string resultado = valor.ManipularValor(2000000000.00);
+
+            Assert.AreEqual("dois bilhões de reais", resultado);
+        }
+
+        [TestMethod]
+        public void DeveRetornarDoisBilhoesUmMilhaoTrezendosEDoisMilReais()
+        {
+            ValorInicial valor = new ValorInicial();
+            string resultado = valor.ManipularValor(2001302000.00);
+
+            Assert.AreEqual("dois bilhões um milhão trezentos e dois mil reais", resultado);
+        }
     }
 }
